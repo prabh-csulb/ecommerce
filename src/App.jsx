@@ -1,7 +1,13 @@
-import "./App.css";
+import React from "react";
+import "./App.scss";
+import DemoComponent from "./components/Democomponent/DemoComponent";
 
 function App() {
-  return <>First commit for pushing the local project creation to Github</>;
+  return (
+    <div>
+      <DemoComponent />
+    </div>
+  );
 }
 
 export default App;
