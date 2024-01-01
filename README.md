@@ -15,3 +15,6 @@ Currently, two official plugins are available:
 4. Removed default Changes in the vite setup and pushed a demo text TS component. 
 5. Dont forget to set the configuration of local git for name and email.
 6. Installed Local Extension for VS Code: Prettier, GitLens, Live Server.
+
+# 12/31/2023
+1. Did Redux Toolkit Setup.
