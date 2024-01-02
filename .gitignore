@@ -1,3 +1,5 @@
 # Ignore the following files and folders for git process
 
 /node_modules
+
+/server
