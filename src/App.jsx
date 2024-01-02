@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.scss";
-import DemoComponent from "./components/Democomponent/DemoComponent";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
-    <div>
-      <DemoComponent />
+    <div className="app-container">
+      <HomePage />
     </div>
   );
 }
