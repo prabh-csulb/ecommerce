@@ -10,11 +10,9 @@
     padding-left: 0px;
     li {
       min-width: 280px;
+      max-width: 280px;
       list-style: none;
       .filter-button {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: 20px;
         width: 100%;
         margin-top: 20px;
@@ -24,6 +22,11 @@
         font-size: 17px;
         font-weight: 400;
         letter-spacing: 1px;
+        .filter-button-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
       }
     }
   }
