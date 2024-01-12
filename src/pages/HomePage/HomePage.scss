@@ -1,4 +1,4 @@
-.home-page {
+.product-list-section {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-gap: 30px;
@@ -10,5 +10,12 @@
 @media screen and (max-width: 720px) {
   .home-page {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.home-page {
+  display: flex;
+  .filters-section {
+    min-width: 20%
   }
 }

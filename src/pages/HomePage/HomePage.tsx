@@ -6,6 +6,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import Loader from "../../components/Loader/Loader";
 import { ApplicationState } from "../../store";
 import "./HomePage.scss";
+import ProductFilters from "../../components/ProductFilters/ProductFilters";
 
 const HomePage = () => {
   const dispatch = useDispatch<any>();
@@ -26,11 +27,16 @@ const HomePage = () => {
   }
   return (
     <div className="home-page">
-      {products &&
-        products.length > 0 &&
-        products?.map((product) => {
-          return <ProductCard product={product} quickLook={true} />;
-        })}
+      <div className="filters-section">
+        <ProductFilters />
+      </div>
+      <div className="product-list-section">
+        {products &&
+          products.length > 0 &&
+          products?.map((product, index) => {
+            return <ProductCard product={product} quickLook={true} key={index}/>;
+          })}
+      </div>
     </div>
   );
 };
