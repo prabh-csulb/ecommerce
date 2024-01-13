@@ -6,9 +6,13 @@ import { FilterButton } from "../FilterButton/FilterButton";
 
 export interface FilterButtonProps {
   filterCategory: filterCategoriesTypes;
+  filterCategoryInDisplay: any;
+  setFilterCategoryInDisplay: any;
 }
 
 const ProductFilters = () => {
+  const [filterCategoryInDisplay, setFilterCategoryInDisplay] =
+    React.useState<any>(undefined);
   return (
     <div className="filters-wrapper">
       <h2>{HomePageMessages.filtersHeading}</h2>
@@ -18,6 +22,8 @@ const ProductFilters = () => {
             <FilterButton
               filterCategory={filterCategory}
               key={filterCategory.id}
+              filterCategoryInDisplay={filterCategoryInDisplay}
+              setFilterCategoryInDisplay={setFilterCategoryInDisplay}
             />
           );
         })}

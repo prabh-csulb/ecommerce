@@ -3,8 +3,12 @@ import { FilterButtonProps } from "../ProductFilters/ProductFilters";
 import { filterCategories } from "../ProductFilters/filtersData";
 import { FilterValuesList } from "../FilterValues/FilterValues";
 
-export const FilterButton = ({ filterCategory }: FilterButtonProps) => {
-  const [filterCategoryInDisplay, setFilterCategoryInDisplay] =
+export const FilterButton = ({
+  filterCategory,
+  filterCategoryInDisplay,
+  setFilterCategoryInDisplay,
+}: FilterButtonProps) => {
+  const [isFilterDrawerOpened, setIsFilterDrawerOpened] =
     React.useState<any>(undefined);
 
   const getClickedArr = (filterItem) => {
@@ -18,10 +22,12 @@ export const FilterButton = ({ filterCategory }: FilterButtonProps) => {
       <button
         className="filter-button"
         onClick={() => {
-          if (filterCategoryInDisplay) {
+          if (filterCategoryInDisplay && isFilterDrawerOpened) {
             setFilterCategoryInDisplay(undefined);
+            setIsFilterDrawerOpened(false);
           } else {
             getClickedArr(filterCategory);
+            setIsFilterDrawerOpened(true);
           }
         }}
       >
