@@ -8,7 +8,7 @@ export const filterCategories: filterCategoriesTypes[] = [
   {
     id: "Size",
     label: "Size",
-    filters: ["extra-small", "small", "medium", "large", "extra-large"],
+    filters: ["xs", "s", "m", "l", "xl"],
   },
   {
     id: "Color",

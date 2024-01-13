@@ -12,11 +12,11 @@ export interface FilterButtonProps {
 
 const ProductFilters = () => {
   const [filterCategoryInDisplay, setFilterCategoryInDisplay] =
-    React.useState<any>(undefined);
+    React.useState<any>({});
   return (
     <div className="filters-wrapper">
       <h2>{HomePageMessages.filtersHeading}</h2>
-      <ul>
+      <ul className="filter-categories main-list">
         {filterCategories.map((filterCategory) => {
           return (
             <FilterButton

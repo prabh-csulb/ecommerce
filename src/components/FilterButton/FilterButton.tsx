@@ -2,6 +2,7 @@ import React from "react";
 import { FilterButtonProps } from "../ProductFilters/ProductFilters";
 import { filterCategories } from "../ProductFilters/filtersData";
 import { FilterValuesList } from "../FilterValues/FilterValues";
+import "./FilterButton.scss";
 
 export const FilterButton = ({
   filterCategory,
@@ -17,26 +18,33 @@ export const FilterButton = ({
     })[0];
     return setFilterCategoryInDisplay(filtersValuesInView);
   };
+  const openDrawer =
+    Object.keys(filterCategoryInDisplay).length > 0 &&
+    filterCategory.id === filterCategoryInDisplay.id;
   return (
-    <li>
+    <li className="filter-category-list">
       <button
-        className="filter-button"
-        onClick={() => {
-          if (filterCategoryInDisplay && isFilterDrawerOpened) {
-            setFilterCategoryInDisplay(undefined);
-            setIsFilterDrawerOpened(false);
-          } else {
-            getClickedArr(filterCategory);
-            setIsFilterDrawerOpened(true);
-          }
-        }}
+        className={`filter-button ${
+          filterCategory.id === filterCategoryInDisplay.id ? "open" : ""
+        }`}
       >
-        <span className="filter-button-content">
+        <span
+          className="filter-button-content"
+          onClick={() => {
+            if (filterCategoryInDisplay && isFilterDrawerOpened) {
+              setFilterCategoryInDisplay({});
+              setIsFilterDrawerOpened(false);
+            } else {
+              getClickedArr(filterCategory);
+              setIsFilterDrawerOpened(true);
+            }
+          }}
+        >
           <span>{filterCategory.label}</span>
           <span className="arrow down"></span>
         </span>
-        {filterCategoryInDisplay && (
-          <ul className="filter-categories-values-list">
+        {openDrawer && (
+          <ul className={`filter-categories-values-list`}>
             {filterCategoryInDisplay &&
             filterCategory.id === filterCategoryInDisplay.id ? (
               <FilterValuesList
