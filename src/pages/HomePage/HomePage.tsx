@@ -11,7 +11,7 @@ import ProductFilters from "../../components/ProductFilters/ProductFilters";
 const HomePage = () => {
   const dispatch = useDispatch<any>();
   const products = useSelector(
-    (state: ApplicationState) => state?.products?.data?.photos
+    (state: ApplicationState) => state?.products?.data?.products
   );
   const isFetching = useSelector(
     (state: ApplicationState) => state?.products?.isFetching
@@ -27,14 +27,16 @@ const HomePage = () => {
   }
   return (
     <div className="home-page">
-      <div className="filters-section">
+      {/* <div className="filters-section">
         <ProductFilters />
-      </div>
+      </div> */}
       <div className="product-list-section">
         {products &&
           products.length > 0 &&
           products?.map((product, index) => {
-            return <ProductCard product={product} quickLook={true} key={index}/>;
+            return (
+              <ProductCard product={product} quickLook={true} key={index} />
+            );
           })}
       </div>
     </div>

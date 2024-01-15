@@ -1,18 +1,23 @@
 export interface ProductsResponse {
   limit: number;
+  skip: number;
+  total: number;
   message: string;
-  offset: number;
-  photos: ProductsData[];
-  success: boolean;
-  total_photos: number;
+  products: ProductsData[];
 }
 
 export interface ProductsData {
+  brand: string;
+  category: string;
   description: string;
+  discountPercentage: string;
   id: number;
+  images: string[];
+  price: number;
+  rating: string;
+  stock: number;
+  thumbnail: string;
   title: string;
-  url: string;
-  user: number;
 }
 
 export interface ProductsResponseBody {

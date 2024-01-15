@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import { fetchProductsReducer as products } from "../store/products/reducer";
 import { HomePageProductsState } from "./products/types";
 
