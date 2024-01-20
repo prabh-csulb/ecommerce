@@ -2,8 +2,8 @@ import { Dispatch } from "redux";
 import { ProductsActionTypes } from "./types";
 import { ProductsResponse } from "../apiDataTypes/ProductApiTypes";
 
-const MOCK_API_URL =
-  "https://api.slingacademy.com/v1/sample-data/photos?offset=5&limit=50";
+// const MOCK_API_URL = "https://dummyjson.com/products?limit=100";
+const MOCK_API_URL = "http://localhost:4444/products";
 
 export const fetchProductsPending = () => (dispatch: Dispatch) => {
   return dispatch({
@@ -17,10 +17,10 @@ export const fetchProductsRejected = () => (dispatch: Dispatch) => {
   });
 };
 
-export const fetchProducts = () => (dispatch: any) => {
+export const fetchProducts = (limit: number) => (dispatch: any) => {
   dispatch(fetchProductsPending());
   setTimeout(() => {
-    fetch(MOCK_API_URL)
+    fetch(`${MOCK_API_URL}?limit=${limit}`)
       .then((res) => {
         return res.json();
       })
