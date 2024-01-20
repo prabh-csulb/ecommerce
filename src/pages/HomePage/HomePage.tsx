@@ -7,6 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import { ApplicationState } from "../../store";
 import "./HomePage.scss";
 import ProductFilters from "../../components/ProductFilters/ProductFilters";
+import { generateRandomNumberInGivenRange } from "../../utilities/helpers";
 
 const HomePage = () => {
   const dispatch = useDispatch<any>();
@@ -19,7 +20,7 @@ const HomePage = () => {
 
   React.useEffect(() => {
     if (!products) {
-      dispatch(fetchProducts());
+      dispatch(fetchProducts(generateRandomNumberInGivenRange(1, 100)));
     }
   }, []);
   if (isFetching) {
